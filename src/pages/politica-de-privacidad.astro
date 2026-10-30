@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title="Política de privacidad">
+  <section class="section">
+    <div class="wrap prose">
+      <h1>Política de privacidad</h1>
+      <!-- BORRADOR: sustituye por tu texto vigente (puedes traer el de la web actual) y revísalo con tu asesor legal. -->
+      <h2>Responsable del tratamiento</h2>
+      <p>{site.legalOwner}. Contacto: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+      <h2>Para qué usamos tus datos</h2>
+      <p>[pendiente: finalidad, base legal, plazo de conservación y derechos de las personas.]</p>
+    </div>
+  </section>
+</BaseLayout>

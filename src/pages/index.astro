@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceList from '../components/ServiceList.astro';
+import Steps from '../components/Steps.astro';
+import CallToAction from '../components/CallToAction.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={site.name} description={site.description}>
+  <Hero />
+
+  <section class="section" aria-labelledby="servicios">
+    <div class="wrap">
+      <ServiceList />
+    </div>
+  </section>
+
+  <section class="section section--sea" aria-labelledby="como">
+    <div class="wrap">
+      <Steps />
+    </div>
+  </section>
+
+  <CallToAction />
+</BaseLayout>

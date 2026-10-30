@@ -1,0 +1,392 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { SITE_DATA } from "../data/site";
+---
+
+<BaseLayout
+  title={`Contacto y Cómo llegar | ${SITE_DATA.name}`}
+  description="Contacta con Fervi Asesores en El Ejido (Edificio CIM). Llámanos al 850 985 066 (también WhatsApp) o al 605 310 779, o visítanos presencialmente."
+>
+  <!-- Hero de Contacto -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Atención Presencial y Online en El Ejido</span>
+      <h1>Estamos aquí para ayudarte a ahorrar</h1>
+      <p class="lead">
+        Tráenos tus facturas o pólizas a nuestra oficina en el Edificio CIM, llámanos o envíanos un WhatsApp sin compromiso.
+      </p>
+    </div>
+  </section>
+
+  <!-- Bloque Principal: Datos + Formulario -->
+  <section class="section">
+    <div class="container contact-layout">
+      <!-- Columna Izquierda: Tarjetas de Contacto y Redes -->
+      <div class="contact-info-col">
+        <h2>Canales de atención directa</h2>
+        <p class="muted-intro">
+          Sin centralitas ni robots. Habla directamente con tu asesor de confianza.
+        </p>
+
+        <div class="contact-cards">
+          <!-- Teléfono 850 con WhatsApp -->
+          <div class="info-card highlight-wa">
+            <div class="info-icon wa">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/><path d="M12 2C6.486 2 2 6.486 2 12c0 1.828.494 3.541 1.352 5.018L2 22l5.132-1.347A9.956 9.956 0 0 0 12 22c5.514 0 10-4.486 10-10S17.514 2 12 2zm0 18c-1.577 0-3.095-.456-4.397-1.318l-.315-.208-3.046.799.814-2.967-.229-.327A7.953 7.953 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            </div>
+            <div class="info-body">
+              <span class="info-label">Teléfono Fijo y WhatsApp</span>
+              <strong class="info-value">850 985 066</strong>
+              <p class="info-note">Puedes llamarnos o enviarnos fotos de tus facturas por WhatsApp a este mismo número.</p>
+              <div class="info-actions">
+                <a href="tel:+34850985066" class="btn btn-outline btn-xs">Llamar</a>
+                <a
+                  href={SITE_DATA.phones[0].whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-xs"
+                >
+                  Abrir WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teléfono Móvil 605 -->
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <div class="info-body">
+              <span class="info-label">Teléfono Móvil Directo</span>
+              <a href="tel:+34605310779" class="info-value-link">605 310 779</a>
+              <p class="info-note">Atención telefónica directa en horario comercial.</p>
+            </div>
+          </div>
+
+          <!-- Correo Electrónico -->
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="info-body">
+              <span class="info-label">Correo Electrónico</span>
+              <a href={`mailto:${SITE_DATA.email}`} class="info-value-link">{SITE_DATA.email}</a>
+              <p class="info-note">Envíanos tus recibos en PDF para realizar tu estudio sin coste.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Redes Sociales en Contacto -->
+        <div class="social-box">
+          <h3>Síguenos en redes sociales</h3>
+          <p>Consejos de ahorro, novedades del sector energético y actualidad en El Ejido.</p>
+          <div class="social-buttons">
+            <a
+              href={SITE_DATA.socials.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-card-btn"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <span>@ferviasesores en Instagram</span>
+            </a>
+            <a
+              href={SITE_DATA.socials.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-card-btn"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              <span>Fervi Asesores en Facebook</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Formulario -->
+      <div class="contact-form-col">
+        <div class="form-wrapper card">
+          <h2>Envíanos tu consulta</h2>
+          <p>Cuéntanos qué servicio necesitas revisar y te responderemos en menos de 24 horas laborables.</p>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Integrada: CÓMO LLEGAR -->
+  <section class="section section-alt" id="mapa">
+    <div class="container">
+      <div class="directions-header">
+        <span class="eyebrow">Ubicación y Accesos</span>
+        <h2>Cómo llegar a nuestra oficina en El Ejido</h2>
+        <p>Nos encontramos en una de las zonas empresariales más accesibles de El Ejido, con facilidad de aparcamiento.</p>
+      </div>
+
+      <div class="directions-grid">
+        <div class="directions-details card">
+          <h3>📍 Dirección exacta</h3>
+          <p class="address-highlight">{SITE_DATA.address.full}</p>
+
+          <ul class="directions-list">
+            <li>
+              <strong>Edificio:</strong> Centro de Iniciativas Empresariales (Edificio CIM), junto a Bulevar y zona comercial de El Ejido.
+            </li>
+            <li>
+              <strong>Planta y Oficina:</strong> Sube en el ascensor principal hasta la <strong>Planta 4, Oficina 15</strong> (accesible para personas con movilidad reducida).
+            </li>
+            <li>
+              <strong>En coche y aparcamiento:</strong> Acceso directo desde la A-7 (Salidas hacia El Ejido Centro / Sur). Amplias zonas de aparcamiento en las inmediaciones de la C/ Leonardo Da Vinci.
+            </li>
+            <li>
+              <strong>Horario de atención:</strong> {SITE_DATA.schedule}.
+            </li>
+          </ul>
+
+          <a
+            href={SITE_DATA.address.googleMapsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+          >
+            Abrir ruta en Google Maps
+          </a>
+        </div>
+
+        <div class="map-container card">
+          <iframe
+            src={SITE_DATA.address.googleMapsEmbed}
+            width="100%"
+            height="100%"
+            style="border:0; min-height: 400px; border-radius: 10px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de ubicación de Fervi Asesores en Edificio CIM, El Ejido"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: #FFFFFF;
+    padding: 4.5rem 0 3.5rem;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    color: #FFFFFF;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 1rem;
+  }
+
+  .page-hero .eyebrow {
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+  }
+
+  .page-hero .lead {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1.12rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 1.15fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .muted-intro {
+    color: var(--color-text-muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-card {
+    display: flex;
+    gap: 1.1rem;
+    padding: 1.4rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: #FFFFFF;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .info-card.highlight-wa {
+    border-color: var(--color-cta);
+    background: linear-gradient(to right, #FFFFFF, var(--color-cta-light));
+  }
+
+  .info-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--color-secondary-light);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-icon.wa {
+    background: var(--color-whatsapp);
+    color: #FFFFFF;
+  }
+
+  .info-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .info-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+  }
+
+  .info-value,
+  .info-value-link {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-primary);
+  }
+
+  .info-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .info-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.65rem;
+  }
+
+  .btn-xs {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .social-box {
+    background: var(--color-bg-alt);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .social-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .social-box p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .social-card-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .social-card-btn:hover {
+    border-color: var(--color-secondary);
+    background: var(--color-secondary-light);
+  }
+
+  .form-wrapper h2 {
+    margin-bottom: 0.4rem;
+  }
+
+  .form-wrapper > p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Cómo llegar */
+  .directions-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .directions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .address-highlight {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin: 0.5rem 0 1.25rem;
+  }
+
+  .directions-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .directions-list li {
+    font-size: 0.95rem;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .directions-list li::before {
+    content: "•";
+    color: var(--color-cta);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .map-container {
+    padding: 0.75rem;
+    display: flex;
+  }
+
+  @media (max-width: 900px) {
+    .contact-layout,
+    .directions-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

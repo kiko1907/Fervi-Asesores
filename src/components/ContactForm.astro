@@ -1,0 +1,131 @@
+---
+import { SERVICES } from "../data/site";
+---
+
+<form class="fervi-form" action="/contacto" method="POST">
+  <div class="form-row">
+    <div class="form-field">
+      <label for="nombre">Nombre completo *</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        placeholder="Ej. Juan García"
+        required
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="telefono">Teléfono de contacto *</label>
+      <input
+        type="tel"
+        id="telefono"
+        name="telefono"
+        placeholder="Ej. 600 000 000"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="email">Correo electrónico</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="tu@email.com (opcional)"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="servicio">¿Qué quieres revisar?</label>
+    <select id="servicio" name="servicio" required>
+      <option value="" disabled selected>Elige un servicio...</option>
+      {SERVICES.map((s) => (
+        <option value={s.slug}>{s.shortTitle}</option>
+      ))}
+      <option value="varios">Varios servicios / Estudio integral</option>
+    </select>
+  </div>
+
+  <div class="form-field">
+    <label for="mensaje">Cuéntanos tu caso</label>
+    <textarea
+      id="mensaje"
+      name="mensaje"
+      rows="4"
+      placeholder="Indícanos brevemente qué factura, póliza o gestión te gustaría que revisemos..."
+    ></textarea>
+  </div>
+
+  <label class="privacy-check">
+    <input type="checkbox" name="privacidad" required />
+    <span>
+      He leído y acepto la <a href="/politica-de-privacidad" target="_blank">Política de Privacidad</a>.
+    </span>
+  </label>
+
+  <button type="submit" class="btn btn-primary submit-btn">
+    Solicitar estudio gratuito
+  </button>
+</form>
+
+<style>
+  .fervi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .privacy-check {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.86rem !important;
+    font-weight: 500 !important;
+    color: var(--color-text-muted) !important;
+    cursor: pointer;
+    margin-top: 0.25rem;
+  }
+
+  .privacy-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-cta);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 0.95rem;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 600px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

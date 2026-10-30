@@ -1,0 +1,270 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CallToAction from "../components/CallToAction.astro";
+import { SITE_DATA } from "../data/site";
+---
+
+<BaseLayout
+  title={`Quiénes somos | ${SITE_DATA.name}`}
+  description="Conoce a Fervi Asesores en El Ejido. Tu asesoría independiente de seguros, energía, telecomunicaciones, informática y finanzas con trato cercano y sin letra pequeña."
+>
+  <section class="about-hero">
+    <div class="container">
+      <span class="eyebrow">Nuestra Filosofía</span>
+      <h1>Un único asesor de confianza para cuidar de tu economía</h1>
+      <p>
+        Nacimos en El Ejido con un propósito claro: defender los intereses de familias, autónomos y empresas frente a la complejidad y la letra pequeña de las grandes compañías.
+      </p>
+    </div>
+  </section>
+
+  <!-- Bloque principal con Imagen Acorde al Contenido -->
+  <section class="section">
+    <div class="container about-split">
+      <div class="about-text">
+        <span class="eyebrow">Cercanía y Transparencia</span>
+        <h2>Más que gestores, somos tus aliados en el ahorro diario</h2>
+        <p>
+          En <strong>Fervi Asesores</strong> sabemos lo frustrante que resulta perder horas al teléfono con centralitas automáticas, recibir facturas de luz o telefonía con subidas inexplicables o no saber qué cubre realmente tu seguro hasta que ocurre un imprevisto.
+        </p>
+        <p>
+          Por eso ofrecemos un modelo de <strong>asesoría integral y presencial en El Ejido</strong>: centralizamos tus contratos de seguros, energía, telecomunicaciones, trámites jurídicos, informática y finanzas en una sola mano. Tú tienes una persona con nombre y apellidos a la que acudir en el Edificio CIM, y nosotros nos encargamos de negociar por ti.
+        </p>
+
+        <div class="mission-cards">
+          <div class="mini-card">
+            <h3>Nuestra Misión</h3>
+            <p>Asegurar que cada cliente pague exclusivamente lo justo por sus suministros y pólizas, con las mejores garantías del mercado.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Nuestro Compromiso</h3>
+            <p>Independencia total, lenguaje claro sin tecnicismos y revisión continua para que tu ahorro se mantenga año tras año.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagen Acorde al Contenido con Badges UX/UI -->
+      <div class="about-visual">
+        <div class="image-frame">
+          <img
+            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=80"
+            alt="Asesoramiento personalizado y revisión de contratos con clientes en la oficina de Fervi Asesores en El Ejido"
+            width="600"
+            height="700"
+            loading="lazy"
+          />
+          <div class="floating-badge badge-top">
+            <strong>6 Áreas de Especialización</strong>
+            <span>Un único interlocutor en El Ejido</span>
+          </div>
+          <div class="floating-badge badge-bottom">
+            <span class="check-circle">✓</span>
+            <div>
+              <strong>Estudio 100% Gratuito</strong>
+              <span>Sin compromiso ni permanencias</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores Diferenciales -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="values-header">
+        <span class="eyebrow">Por qué elegirnos</span>
+        <h2>Lo que nos diferencia de las plataformas online</h2>
+      </div>
+      <div class="values-grid">
+        <div class="card">
+          <h3>Trato Cara a Cara</h3>
+          <p>Te atendemos personalmente en nuestra oficina del Edificio CIM en El Ejido, por teléfono o por WhatsApp, sin robots ni esperas.</p>
+        </div>
+        <div class="card">
+          <h3>Independencia Real</h3>
+          <p>No estamos atados a una única compañía. Comparamos con objetividad para recomendarte la opción que más te beneficia a ti.</p>
+        </div>
+        <div class="card">
+          <h3>Gestión de Principio a Fin</h3>
+          <p>Nos ocupamos de todo el papeleo, bajas, portabilidades y seguimiento de siniestros para que tú no tengas que preocuparte por nada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+</BaseLayout>
+
+<style>
+  .about-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: #FFFFFF;
+    padding: 4.5rem 0 3.5rem;
+    text-align: center;
+  }
+
+  .about-hero .eyebrow {
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+  }
+
+  .about-hero h1 {
+    color: #FFFFFF;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .about-hero p {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1.12rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .about-split {
+    display: grid;
+    grid-template-columns: 1.1fr 0.95fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .about-text h2 {
+    margin-bottom: 1.1rem;
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.1rem;
+    font-size: 1.03rem;
+  }
+
+  .mission-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .mini-card {
+    background: var(--color-bg-alt);
+    border-left: 4px solid var(--color-cta);
+    padding: 1.25rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .mini-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .mini-card p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .image-frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+  }
+
+  .image-frame img {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+    width: 100%;
+    height: 480px;
+  }
+
+  .floating-badge {
+    position: absolute;
+    background: #FFFFFF;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .badge-top {
+    top: 20px;
+    left: -20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .badge-top strong {
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .badge-top span {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .badge-bottom {
+    bottom: 20px;
+    right: -15px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .check-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-cta);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .badge-bottom strong {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .badge-bottom span {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .values-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .values-grid h3 {
+    margin-bottom: 0.6rem;
+  }
+
+  .values-grid p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 900px) {
+    .about-split,
+    .values-grid,
+    .mission-cards {
+      grid-template-columns: 1fr;
+    }
+    .badge-top,
+    .badge-bottom {
+      position: static;
+      margin-top: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,123 @@
+---
+// Factura ilustrativa del hero. Los importes son un ejemplo, no una oferta.
+const lines = [
+  { label: 'Seguro del local', before: 612, after: 468 },
+  { label: 'Luz y potencia', before: 184, after: 139 },
+  { label: 'Móvil y fibra', before: 96, after: 62 },
+];
+const eur = (n: number) => `${n} €`;
+const totalBefore = lines.reduce((a, l) => a + l.before, 0);
+const totalAfter = lines.reduce((a, l) => a + l.after, 0);
+---
+
+<figure class="factura" aria-label="Ejemplo ilustrativo de revisión de gastos">
+  <figcaption class="factura__head">
+    <span>Tus gastos de este mes</span>
+    <span class="factura__tag">Ejemplo</span>
+  </figcaption>
+  <ul class="factura__lines">
+    {lines.map((l, i) => (
+      <li style={`--i:${i}`}>
+        <span class="factura__label">{l.label}</span>
+        <span class="factura__before">{eur(l.before)}</span>
+        <span class="factura__after">{eur(l.after)}</span>
+      </li>
+    ))}
+  </ul>
+  <div class="factura__total">
+    <span>Total</span>
+    <span class="factura__before">{eur(totalBefore)}</span>
+    <strong class="factura__after">{eur(totalAfter)}</strong>
+  </div>
+  <p class="factura__note">Importes ilustrativos. El ahorro real depende de cada caso.</p>
+</figure>
+
+<style>
+  .factura {
+    margin: 0;
+    background: var(--white);
+    color: var(--ink);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 24px 60px rgb(0 0 0 / 0.28);
+    transform: rotate(1.2deg);
+    position: relative;
+  }
+  /* borde dentado tipo ticket */
+  .factura::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 8px;
+    background: linear-gradient(135deg, var(--white) 50%, transparent 50%) 0 0 / 16px 8px,
+      linear-gradient(225deg, var(--white) 50%, transparent 50%) 0 0 / 16px 8px;
+  }
+  .factura__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    padding-bottom: 0.9rem;
+    border-bottom: 2px dashed var(--line);
+  }
+  .factura__tag {
+    font-size: var(--step--1);
+    font-weight: 600;
+    background: var(--paper);
+    color: var(--muted);
+    padding: 0.15rem 0.6rem;
+    border-radius: 99px;
+  }
+  .factura__lines { list-style: none; margin: 0; padding: 0; }
+  .factura li,
+  .factura__total {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    align-items: baseline;
+    padding-block: 0.85rem;
+    border-bottom: 1px solid var(--line);
+    font-variant-numeric: tabular-nums;
+  }
+  .factura__total { border-bottom: 0; font-size: var(--step-1); font-weight: 700; }
+  .factura__before {
+    color: var(--muted);
+    position: relative;
+  }
+  /* La línea tachada se dibuja y el importe nuevo aparece: único momento animado */
+  .factura__before::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    top: 55%;
+    height: 2px;
+    background: #c0392b;
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: tachar 0.5s ease-out forwards;
+    animation-delay: calc(0.6s + var(--i, 3) * 0.35s);
+  }
+  .factura__after {
+    color: var(--field);
+    font-weight: 700;
+    opacity: 0;
+    animation: aparecer 0.4s ease-out forwards;
+    animation-delay: calc(0.9s + var(--i, 3) * 0.35s);
+  }
+  .factura__total .factura__before { --i: 3; }
+  .factura__total .factura__after { --i: 3; }
+  .factura__note { margin: 0.5rem 0 0; font-size: var(--step--1); color: var(--muted); }
+
+  @keyframes tachar { to { transform: scaleX(1); } }
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .factura__before::after { transform: scaleX(1); animation: none; }
+    .factura__after { opacity: 1; animation: none; }
+  }
+</style>
